@@ -14,6 +14,7 @@ class Embalses extends Migration
     {
         \Schema::create('embalses',function(Blueprint $table){
             $table->string('nombre');
+            $table->string('slug');
             $table->string('siteID');
             $table->decimal('latitude');
             $table->decimal('longitude');
