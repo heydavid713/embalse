@@ -1,21 +1,15 @@
-## Lumen PHP Framework
+# embalses
+Lumen service to fetch and display USGS Water Data for Puerto Rico's damsites as a REST json service.
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+Inspired by http://mate.uprh.edu/embalsespr/  (https://github.com/mecobi/EmbalsesPR)
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+I was meaning to write this service for a long time, and now I did it. I hope is useful to some in the future.
 
-## Official Documentation
+Written on Lumen 5.2 and PHP 7.
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+##To-Do
 
-## Security Vulnerabilities
+- Subscription service to notify change in water levels.
+- UI
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+GPL licensed.
