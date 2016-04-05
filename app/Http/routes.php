@@ -15,5 +15,5 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('/all','EmbalseController@all');
-$app->get('/{slug}','EmbalseController@show');
+$app->get('/all', 'EmbalseController@all');
+$app->get('/{slug}', 'EmbalseController@show');

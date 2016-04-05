@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class Embalses extends Migration
 {
@@ -12,7 +12,7 @@ class Embalses extends Migration
      */
     public function up()
     {
-        \Schema::create('embalses',function(Blueprint $table){
+        \Schema::create('embalses', function (Blueprint $table) {
             $table->string('nombre');
             $table->string('slug');
             $table->string('siteID');
