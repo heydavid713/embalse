@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use app\Embalse;
-use Symfony\Component\HttpFoundation\Request;
 
 class EmbalseController extends Controller
 {
@@ -17,23 +16,23 @@ class EmbalseController extends Controller
         //
     }
 
-    public function show(string $slug){
-
+    public function show(string $slug)
+    {
         $embalse = Embalse::whereSlug($slug)->firstOrFail();
 
         return $embalse->latestRead();
     }
 
-
-    public function all(){
+    public function all()
+    {
         $embalses = Embalse::all();
 
         $reads = [];
 
-        foreach($embalses as $embalse){
+        foreach ($embalses as $embalse) {
             $reads[$embalse->nombre] = $embalse->latestRead();
         }
 
-         return $reads;
+        return $reads;
     }
 }

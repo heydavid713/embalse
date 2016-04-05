@@ -2,7 +2,6 @@
 
 namespace app;
 
-
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +12,7 @@ class Embalse extends Model
     public $incrementing = false;
 
     protected $fillable = [
-        'nombre','siteID','latitude','longitude','desborde','seguridad','observacion','ajuste','control','capacidad'
+        'nombre', 'siteID', 'latitude', 'longitude', 'desborde', 'seguridad', 'observacion', 'ajuste', 'control', 'capacidad',
 
     ];
 
@@ -24,21 +23,22 @@ class Embalse extends Model
         return parent::save($options);
     }
 
-    public function latestRead(){
+    public function latestRead()
+    {
         $usgs = 'http://nwis.waterdata.usgs.gov/pr/nwis/uv/?cb_62616=on&format=rdb&site_no=%s&begin_date=%s&end_date=%s';
 
-        $usgs = sprintf($usgs,$this->siteID,Carbon::now()->toDateString(),Carbon::now()->toDateString());
+        $usgs = sprintf($usgs, $this->siteID, Carbon::now()->toDateString(), Carbon::now()->toDateString());
 
         $client = new \GuzzleHttp\Client();
 
         $res = $client->request('GET', $usgs);
 
-        $data = array_slice(str_getcsv($res->getBody()->getContents(),"\t"),10);
+        $data = array_slice(str_getcsv($res->getBody()->getContents(), "\t"), 10);
 
-        $latest_read = array_slice($data,count($data) - 6)[4];
+        $latest_read = array_slice($data, count($data) - 6)[4];
 
-        foreach(array_only($this->toArray(),['desborde','seguridad','observacion','ajuste','control']) as $key => $value){
-            if($latest_read > $value){
+        foreach (array_only($this->toArray(), ['desborde', 'seguridad', 'observacion', 'ajuste', 'control']) as $key => $value) {
+            if ($latest_read > $value) {
                 return ['embalse' => $this->nombre, 'nivel' => $latest_read, 'status' => $key, 'capacidad' => $this->capacidad];
             }
         }
