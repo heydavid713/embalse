@@ -35,7 +35,7 @@ class Embalse extends Model
 
         $data = array_slice(str_getcsv($res->getBody()->getContents(), "\t"), 10);
 
-        $latest_read = array_slice($data, count($data) - 6)[4] ?? "0";
+        $latest_read = array_slice($data, count($data) - 6)[4] ?? '0';
 
         foreach (array_only($this->toArray(), ['desborde', 'seguridad', 'observacion', 'ajuste', 'control']) as $key => $value) {
             if ($latest_read > $value) {
